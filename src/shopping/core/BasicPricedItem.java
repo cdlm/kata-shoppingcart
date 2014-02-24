@@ -13,6 +13,10 @@ public class BasicPricedItem implements Item {
         return unitPrice;
     }
 
+    public String description() {
+        return description;
+    }
+
     public int priceForQuantity(int quantity) {
         return unitPrice * quantity;
     }
