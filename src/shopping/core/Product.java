@@ -1,10 +1,11 @@
 package shopping.core;
 
-public class BasicPricedItem implements Item {
+public class Product implements Item {
+
     private final String description;
     private final int unitPrice;
 
-    public BasicPricedItem(String description, int priceInCents) {
+    public Product(String description, int priceInCents) {
         this.description = description;
         this.unitPrice = priceInCents;
     }

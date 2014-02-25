@@ -2,10 +2,10 @@ package shopping.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import shopping.core.BasicPricedItem;
-import shopping.core.BundlePricedItem;
+import shopping.core.BundlePricing;
 import shopping.core.Cart;
 import shopping.core.Item;
+import shopping.core.Product;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,9 +17,9 @@ public class TestCart {
     @Before
     public void setUp() {
         cart = new Cart();
-        pizza = new BasicPricedItem("pizza", 650);
-        sauce = new BasicPricedItem("tomate basilic", 350);
-        pasta = new BundlePricedItem("spaghetti", 250, 3, 2);
+        pizza = new Product("pizza", 650);
+        sauce = new Product("tomate basilic", 350);
+        pasta = new BundlePricing(new Product("spaghetti", 250), 3, 2);
     }
 
     @Test

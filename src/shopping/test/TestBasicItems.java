@@ -2,7 +2,7 @@ package shopping.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import shopping.core.BasicPricedItem;
+import shopping.core.Product;
 import shopping.core.Cart;
 import shopping.core.Item;
 
@@ -16,7 +16,7 @@ public class TestBasicItems {
     @Before
     public void setUp() {
         cart = new Cart();
-        item = new BasicPricedItem("something", 1000);
+        item = new Product("something", 1000);
     }
 
     @Test
