@@ -24,7 +24,6 @@ public class TestBundleItems {
         cart = new Cart();
         item = new Product("something", 1000);
         bundleItem = new BundlePricing(item, bundleQuantity, paidQuantity);
-
     }
 
     @Test
@@ -35,15 +34,16 @@ public class TestBundleItems {
 
     @Test
     public void test_multipleBundles() {
-        int bundles = 5;
-        cart.add(bundleItem, 5 * bundleQuantity);
-        assertEquals(5 * paidQuantity * item.unitPrice(), cart.total());
+        int howManyBundles = 5;
+        cart.add(bundleItem, howManyBundles * bundleQuantity);
+        assertEquals(howManyBundles * paidQuantity * item.unitPrice(), cart.total());
     }
 
     @Test
     public void test_belowBundleGetNormalPrice() {
-        cart.add(bundleItem, bundleQuantity - 1);
-        assertEquals((bundleQuantity - 1) * item.unitPrice(), cart.total());
+        int howMany = bundleQuantity - 1;
+        cart.add(bundleItem, howMany);
+        assertEquals(howMany * item.unitPrice(), cart.total());
     }
 
     @Test

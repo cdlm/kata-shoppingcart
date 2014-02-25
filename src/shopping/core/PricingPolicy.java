@@ -1,6 +1,6 @@
 package shopping.core;
 
-public abstract class PricingPolicy implements Item {
+public class PricingPolicy implements Item {
 
     private final Item baseItem;
 
@@ -9,5 +9,10 @@ public abstract class PricingPolicy implements Item {
     }
 
     public int unitPrice() { return baseItem.unitPrice(); }
+
     public String description() { return baseItem.description(); }
+
+    public int priceForQuantity(int quantity) {
+        return baseItem.priceForQuantity(quantity);
+    }
 }
