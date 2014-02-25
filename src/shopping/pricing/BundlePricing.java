@@ -1,4 +1,6 @@
-package shopping.core;
+package shopping.pricing;
+
+import shopping.core.Item;
 
 public class BundlePricing extends PricingPolicy {
 

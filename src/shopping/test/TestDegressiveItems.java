@@ -3,7 +3,7 @@ package shopping.test;
 import org.junit.Before;
 import org.junit.Test;
 import shopping.core.Cart;
-import shopping.core.DegressivePricing;
+import shopping.pricing.DegressivePricing;
 import shopping.core.Item;
 import shopping.core.Product;
 

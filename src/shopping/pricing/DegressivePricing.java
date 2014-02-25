@@ -1,4 +1,6 @@
-package shopping.core;
+package shopping.pricing;
+
+import shopping.core.Item;
 
 public class DegressivePricing extends PricingPolicy {
     private final int thresholdQuantity;
