@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import shopping.pricing.BundlePricing;
 import shopping.core.Cart;
-import shopping.core.Item;
+import shopping.core.CartItem;
 import shopping.core.Product;
 
 import static org.junit.Assert.assertEquals;
@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 public class TestBundleItems {
 
     private Cart cart;
-    private Item item;
-    private Item bundleItem;
+    private CartItem item;
+    private CartItem bundleItem;
     private int bundleQuantity;
     private int paidQuantity;
 

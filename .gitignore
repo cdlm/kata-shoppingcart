@@ -2,3 +2,6 @@ out
 shoppingcart.iml
 shoppingcart.ipr
 shoppingcart.iws
+bin
+.classpath
+.project

@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import shopping.core.Cart;
 import shopping.pricing.DegressivePricing;
-import shopping.core.Item;
+import shopping.core.CartItem;
 import shopping.core.Product;
 
 import static org.junit.Assert.assertEquals;
@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 public class TestDegressiveItems {
 
     private Cart cart;
-    private Item item;
-    private Item degressiveItem;
+    private CartItem item;
+    private CartItem degressiveItem;
     private int threshold;
     private int reducedPrice;
 

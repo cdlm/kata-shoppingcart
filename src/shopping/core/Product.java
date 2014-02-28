@@ -1,6 +1,6 @@
 package shopping.core;
 
-public class Product implements Item {
+public class Product  {
 
     private final String description;
     private final int unitPrice;
@@ -16,9 +16,5 @@ public class Product implements Item {
 
     public String description() {
         return description;
-    }
-
-    public int priceForQuantity(int quantity) {
-        return unitPrice * quantity;
     }
 }

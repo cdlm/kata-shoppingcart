@@ -1,32 +1,38 @@
 package shopping.core;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Cart {
-    private Map<Item, Integer> quantities;
+    protected List<CartItem> items;
 
     public Cart() {
-        quantities = new LinkedHashMap<Item, Integer>();
+        items = new LinkedList<CartItem>();
     }
 
     public int total() {
         int result = 0;
-        for (Item each : quantities.keySet()) {
-            result += each.priceForQuantity(quantities.get(each));
+        for (CartItem each : items) {
+            result += each.totalPrice();
         }
         return result;
     }
 
-    public void add(Item itemToBuy) {
-        add(itemToBuy, 1);
+    public void add(CartItem item) {
+    	items.add(item);
     }
-
-    public void add(Item itemToBuy, int howMany) {
-        int previousQuantity = quantities.containsKey(itemToBuy)
-                ? quantities.get(itemToBuy)
-                : 0;
-        quantities.put(itemToBuy, previousQuantity + howMany);
+    
+    public void remove(CartItem item) {
+    	items.remove(item);
+    }
+    
+    public int quantityForProduct(Product product) {
+    	for (CartItem item : items) {
+    		if (item.getProduct().equals(product)) {
+    			return item.getQuantity();
+    		}
+    	}
+    	return 0;
     }
 
     @Override
@@ -34,8 +40,9 @@ public class Cart {
         String line = "--------------------------------\n";
         StringBuffer sb = new StringBuffer();
         sb.append(line);
-        for (Item each : quantities.keySet()) {
-            sb.append(String.format("%-24s % 7.2f\n", each.description(), each.unitPrice() / 100.0));
+        for (CartItem each : items) {
+            sb.append(String.format("%-24s %d\n", each.description(), each.totalPrice()));
+           
         }
         sb.append(line);
         sb.append(String.format("%24s% 8.2f", "TOTAL:", total() / 100.0));

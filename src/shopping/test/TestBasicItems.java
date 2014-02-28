@@ -4,19 +4,22 @@ import org.junit.Before;
 import org.junit.Test;
 import shopping.core.Product;
 import shopping.core.Cart;
-import shopping.core.Item;
+import shopping.core.CartItem;
+import shopping.core.RegularItem;
 
 import static org.junit.Assert.assertEquals;
 
 public class TestBasicItems {
 
     private Cart cart;
-    private Item item;
+    private Product product;
+    private CartItem item;
 
     @Before
     public void setUp() {
         cart = new Cart();
-        item = new Product("something", 1000);
+        product = new Product("Cheese", 3);
+        item = new RegularItem(product, 2);
     }
 
     @Test
@@ -27,7 +30,7 @@ public class TestBasicItems {
     @Test
     public void test_singleBasicItemCostsItsUnitPrice() {
         cart.add(item);
-        assertEquals(item.unitPrice(), cart.total());
+        assertEquals(item.unitPrice() * item.getQuantity(), cart.total());
     }
 
     @Test

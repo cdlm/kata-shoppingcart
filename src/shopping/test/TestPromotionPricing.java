@@ -3,7 +3,7 @@ package shopping.test;
 import org.junit.Before;
 import org.junit.Test;
 import shopping.core.Cart;
-import shopping.core.Item;
+import shopping.core.CartItem;
 import shopping.core.Product;
 import shopping.pricing.PromotionPricing;
 
@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 public class TestPromotionPricing {
 
     private Cart cart;
-    private Item item;
-    private Item degressiveItem;
+    private CartItem item;
+    private CartItem degressiveItem;
 
     @Before
     public void setUp() {
