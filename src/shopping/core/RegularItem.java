@@ -7,7 +7,7 @@ public class RegularItem extends CartItem {
 	}
 
 	@Override
-	float totalPrice() {
+	double price() {
 		return unitPrice() * quantity;
 	}
 

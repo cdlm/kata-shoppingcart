@@ -18,7 +18,7 @@ public abstract class CartItem {
 		return quantity;
 	}
 
-	public float unitPrice() {
+	public double unitPrice() {
 		return product.unitPrice();
 	}
 	public String description() {
@@ -28,9 +28,24 @@ public abstract class CartItem {
 	}
 	
 	
+	public boolean decreaseQty(int delta) {
+		if (quantity - delta > 0) {
+			quantity -= delta;
+			return true;
+		}
+		else {
+			return false;
+		}
+			
+	}
+	
+	public void increaseQty(int delta) {
+		quantity += delta;
+	}
+	
 	
 	abstract protected String itemType();	
 	
-	abstract float totalPrice();
+	abstract double price();
     
 }

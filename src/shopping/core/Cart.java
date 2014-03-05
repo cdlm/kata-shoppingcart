@@ -10,12 +10,16 @@ public class Cart {
         items = new LinkedList<CartItem>();
     }
 
-    public int total() {
-        int result = 0;
+    public double total() {
+        float result = 0;
         for (CartItem each : items) {
-            result += each.totalPrice();
+            result += each.price();
         }
         return result;
+    }
+    
+    public void clear() {
+    	items.clear();
     }
 
     public void add(CartItem item) {
@@ -26,26 +30,38 @@ public class Cart {
     	items.remove(item);
     }
     
-    public int quantityForProduct(Product product) {
+    public int quantity(Product product) {
+    	int sum = 0;
     	for (CartItem item : items) {
     		if (item.getProduct().equals(product)) {
-    			return item.getQuantity();
+    			sum = sum + item.getQuantity();
     		}
     	}
-    	return 0;
+    	return sum;
     }
-
+    
+    public List<CartItem> priceGreater(double amount) {
+    	List<CartItem> result = new LinkedList<CartItem>();
+    	
+    	for (CartItem item: items) {
+    		if (item.price() > amount) {
+    			result.add(item);
+    		}
+    	}
+    	return result;
+    }	
+    	
     @Override
     public String toString() {
         String line = "--------------------------------\n";
         StringBuffer sb = new StringBuffer();
         sb.append(line);
         for (CartItem each : items) {
-            sb.append(String.format("%-24s %d\n", each.description(), each.totalPrice()));
+            sb.append(String.format("%-24s\t%8.2f\n", each.description(), each.price()));
            
         }
         sb.append(line);
-        sb.append(String.format("%24s% 8.2f", "TOTAL:", total() / 100.0));
+        sb.append(String.format("%24s\t%8.2f", "TOTAL:", total()));
         return sb.toString();
     }
 }

@@ -7,10 +7,17 @@ public class App {
 		Product pizza = new Product("Pizza",6);
 		
 		Cart cart = new Cart();
-		cart.add(new RegularItem(bier, 6));
-		cart.add(new BundledItem(pizza, 5, 2, 4));
+		CartItem item1 = new RegularItem(bier, 6);
+		CartItem item2 = new BundledItem(pizza, 5, 2, 4);
+		cart.add(item1);
+		cart.add(item2);
 		
 		System.out.println(cart);
+		
+		item1.increaseQty(3);
+		
+		System.out.println(cart);
+		
 	}
 
 }

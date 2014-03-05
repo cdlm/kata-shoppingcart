@@ -2,11 +2,11 @@ package shopping.core;
 
 import shopping.core.CartItem;
 
-public class ReducedItem extends CartItem {
+public class ReducedPriceItem extends CartItem {
 
     private final float priceFactor;
 
-    public ReducedItem(Product p, int qty, int percentPromotion) {
+    public ReducedPriceItem(Product p, int qty, int percentPromotion) {
         super(p, qty);
         if (percentPromotion < 0 || percentPromotion > 100 ) {
             throw new IllegalArgumentException("reduction must be in [0,100]");
@@ -20,8 +20,8 @@ public class ReducedItem extends CartItem {
 	}
 
 	@Override
-	float totalPrice() {
-		float normalPrice = unitPrice() * quantity;
+	double price() {
+		double normalPrice = unitPrice() * quantity;
 		return (int) (normalPrice * priceFactor);
 	}
 }

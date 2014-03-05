@@ -5,26 +5,25 @@ import org.junit.Test;
 import shopping.core.Cart;
 import shopping.core.CartItem;
 import shopping.core.Product;
-import shopping.pricing.PromotionPricing;
+import shopping.core.ReducedPriceItem;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestPromotionPricing {
+public class TestReducedPriceItems {
 
     private Cart cart;
-    private CartItem item;
-    private CartItem degressiveItem;
+    private Product product;
 
     @Before
     public void setUp() {
         cart = new Cart();
-        item = new Product("something", 1000);
+        product = new Product("something", 1000);
     }
 
     @Test
     public void test_promotionAppliesToOne() {
-        degressiveItem = new PromotionPricing(item, 15);
-        cart.add(degressiveItem);
-        assertEquals(850, cart.total());
+        CartItem reducedItem = new ReducedPriceItem(product, 1, 15);
+        cart.add(reducedItem);
+        assertEquals(850, cart.total(), 0.0);
     }
 }

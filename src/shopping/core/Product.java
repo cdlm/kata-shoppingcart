@@ -2,15 +2,15 @@ package shopping.core;
 
 public class Product  {
 
-    private final String description;
-    private final int unitPrice;
+    private  String description;
+    private  double unitPrice;
 
-    public Product(String description, int priceInCents) {
+    public Product(String description, double d) {
         this.description = description;
-        this.unitPrice = priceInCents;
+        this.unitPrice = d;
     }
 
-    public int unitPrice() {
+    public double unitPrice() {
         return unitPrice;
     }
 

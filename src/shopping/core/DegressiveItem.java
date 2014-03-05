@@ -4,9 +4,9 @@ import shopping.core.CartItem;
 
 public class DegressiveItem extends CartItem {
     private final int thresholdQuantity;
-    private final float reducedUnitPrice;
+    private final double reducedUnitPrice;
 
-    public DegressiveItem(Product p, int qty, int thresholdQuantity, float reducedUnitPrice) {
+    public DegressiveItem(Product p, int qty, int thresholdQuantity, double reducedUnitPrice) {
         super(p, qty);
         this.thresholdQuantity = thresholdQuantity;
         this.reducedUnitPrice = reducedUnitPrice;
@@ -19,7 +19,7 @@ public class DegressiveItem extends CartItem {
 	}
 
 	@Override
-	float totalPrice() {
+	double price() {
 		if (quantity < thresholdQuantity) {
             return unitPrice() * quantity;
         } else {

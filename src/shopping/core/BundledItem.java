@@ -4,7 +4,7 @@ public class BundledItem extends CartItem {
     private final int bundleSize;
     private final int paidQuantity;
 
-    public BundledItem(Product p, int qty, int paidQuantity, int bundleSize) {
+    public BundledItem(Product p, int qty, int bundleSize,int paidQuantity) {
         super(p,qty);
         this.bundleSize = bundleSize;
         this.paidQuantity = paidQuantity;
@@ -17,9 +17,9 @@ public class BundledItem extends CartItem {
 	}
 
 	@Override
-	float totalPrice() {
-	    float bundles = quantity / bundleSize;
-        float remainder = quantity % bundleSize;
+	double price() {
+	    double bundles = quantity / bundleSize;
+        double remainder = quantity % bundleSize;
         return (bundles * paidQuantity + remainder) * unitPrice();
 	}
 }
