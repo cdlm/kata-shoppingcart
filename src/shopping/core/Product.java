@@ -10,7 +10,7 @@ public class Product  {
         this.unitPrice = d;
     }
 
-    public double unitPrice() {
+    public float unitPrice() {
         return unitPrice;
     }
 

@@ -1,7 +1,5 @@
 package shopping.core;
 
-import shopping.core.CartItem;
-
 public class ReducedPriceItem extends CartItem {
 
     private final float priceFactor;
@@ -20,7 +18,7 @@ public class ReducedPriceItem extends CartItem {
 	}
 
 	@Override
-	double price() {
+    public float price() {
 		double normalPrice = unitPrice() * quantity;
 		return (int) (normalPrice * priceFactor);
 	}

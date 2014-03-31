@@ -17,9 +17,9 @@ public class BundledItem extends CartItem {
 	}
 
 	@Override
-	double price() {
-	    double bundles = quantity / bundleSize;
-        double remainder = quantity % bundleSize;
-        return (bundles * paidQuantity + remainder) * unitPrice();
+    public float price() {
+	    int completeBundles = quantity / bundleSize;
+        int remainder = quantity % bundleSize;
+        return (completeBundles * paidQuantity + remainder) * unitPrice();
 	}
 }

@@ -18,7 +18,7 @@ public abstract class CartItem {
 		return quantity;
 	}
 
-	public double unitPrice() {
+	public float unitPrice() {
 		return product.unitPrice();
 	}
 	public String description() {
@@ -46,6 +46,6 @@ public abstract class CartItem {
 	
 	abstract protected String itemType();	
 	
-	abstract double price();
+	abstract float price();
     
 }

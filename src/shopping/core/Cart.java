@@ -4,16 +4,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Cart {
+
     protected List<CartItem> items;
 
     public Cart() {
         items = new LinkedList<CartItem>();
     }
 
-    public double total() {
+    public float total() {
         float result = 0;
         for (CartItem each : items) {
-            result += each.price();
+            result = result + each.price();
         }
         return result;
     }
@@ -40,7 +41,7 @@ public class Cart {
     	return sum;
     }
     
-    public List<CartItem> priceGreater(double amount) {
+    public List<CartItem> priceGreater(float amount) {
     	List<CartItem> result = new LinkedList<CartItem>();
     	
     	for (CartItem item: items) {
