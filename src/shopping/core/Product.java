@@ -1,20 +1,20 @@
 package shopping.core;
 
-public class Product  {
+public class Product {
 
-    private  String description;
-    private  double unitPrice;
+  private String description;
+  private int unitPrice;
 
-    public Product(String description, double d) {
-        this.description = description;
-        this.unitPrice = d;
-    }
+  public Product(String description, int unitPrice) {
+    this.description = description;
+    this.unitPrice = unitPrice;
+  }
 
-    public float unitPrice() {
-        return unitPrice;
-    }
+  public int unitPrice() {
+    return unitPrice;
+  }
 
-    public String description() {
-        return description;
-    }
+  public String description() {
+    return description;
+  }
 }

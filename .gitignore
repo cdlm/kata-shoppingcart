@@ -1,7 +1,8 @@
+.classpath
+.idea/
+.project
+bin
 out
 shoppingcart.iml
 shoppingcart.ipr
 shoppingcart.iws
-bin
-.classpath
-.project
