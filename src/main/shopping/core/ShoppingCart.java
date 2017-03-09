@@ -3,11 +3,11 @@ package shopping.core;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Cart {
+public class ShoppingCart {
 
   protected List<CartItem> items;
 
-  public Cart() {
+  public ShoppingCart() {
     items = new LinkedList<CartItem>();
   }
 

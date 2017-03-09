@@ -3,22 +3,22 @@ package shopping.test;
 import org.junit.Before;
 import org.junit.Test;
 
-import shopping.core.Cart;
 import shopping.core.CartItem;
 import shopping.core.Product;
 import shopping.core.RegularItem;
+import shopping.core.ShoppingCart;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TestCart {
 
-  private Cart cart;
+  private ShoppingCart cart;
   private Product pizza, sauce, pasta;
 
   @Before
   public void setUp() {
-    cart = new Cart();
+    cart = new ShoppingCart();
     pizza = new Product("pizza", 650);
     sauce = new Product("tomate basilic", 350);
     pasta = new Product("spaghetti", 250);
@@ -26,13 +26,13 @@ public class TestCart {
 
 
   @Test
-  public void test_emptyCartCostsZero() {
+  public void emptyCartCostsZero() {
     assertEquals(0, cart.total());
   }
 
 
   @Test
-  public void test_addClear() {
+  public void addClear() {
     cart.add(new RegularItem(pizza, 1));
     cart.add(new RegularItem(sauce, 2));
     cart.clear();
@@ -40,7 +40,7 @@ public class TestCart {
   }
 
   @Test
-  public void test_addRemove() {
+  public void addRemove() {
     CartItem item1 = new RegularItem(pizza, 3);
     CartItem item2 = new RegularItem(pasta, 1);
     cart.clear();
@@ -52,7 +52,7 @@ public class TestCart {
 
 
   @Test
-  public void test_quantityProduct() {
+  public void quantityProduct() {
     int qty1 = 3;
     int qty2 = 5;
     CartItem item1 = new RegularItem(pizza, qty1);
@@ -64,7 +64,7 @@ public class TestCart {
   }
 
   @Test
-  public void test_priceGreater() {
+  public void priceGreater() {
     int qty = 10;
     CartItem item1 = new RegularItem(pizza, qty);
     CartItem item2 = new RegularItem(pasta, qty);
@@ -75,22 +75,20 @@ public class TestCart {
   }
 
   @Test
-  public void test_printEmpty() {
-    assertEquals("--------------------------------\n" +
-                 "--------------------------------\n" +
-                 "                  TOTAL:\t    0.00", cart.toString());
+  public void printEmpty() {
+    assertTrue("Cart printout should end with correct total",
+               cart.toString().endsWith("TOTAL:\t    0.00"));
   }
 
   @Test
-  public void test_printOneOfEach() {
+  public void printOneOfEach() {
     cart.add(new RegularItem(sauce, 1));
     cart.add(new RegularItem(pizza, 1));
     cart.add(new RegularItem(pasta, 1));
-    assertEquals("--------------------------------\n" +
-                 "Regular Item(tomate basilic,1,350)\t    3.50\n" +
-                 "Regular Item(pizza,1,650)\t    6.50\n" +
-                 "Regular Item(spaghetti,1,250)\t    2.50\n" +
-                 "--------------------------------\n" +
-                 "                  TOTAL:\t   12.50", cart.toString());
+    String printout = cart.toString();
+    assertTrue("Cart printout should end with correct total",
+               printout.endsWith("TOTAL:\t   12.50"));
+    assertTrue("Cart printout should have at least one line per item (then the total)",
+               printout.split("\n").length >= 4);
   }
 }

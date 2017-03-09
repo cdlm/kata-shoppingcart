@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+sourceSets {
+    main.java.srcDirs = ['src/main']
+    test.java.srcDirs = ['src/test']
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+}
+
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+apply plugin: 'pmd'
+pmd {
+    // consoleOutput = true
+    ignoreFailures = true
+    ruleSets = [
+            "java-basic",
+            "java-braces",
+            "java-design",
+            "java-empty",
+            "java-imports",
+            "java-junit",
+            "java-naming",
+            "java-strings",
+            "java-typeresolution",
+            "java-unusedcode"
+    ]
+}

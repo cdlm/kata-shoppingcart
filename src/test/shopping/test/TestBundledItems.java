@@ -4,14 +4,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import shopping.core.BundledItem;
-import shopping.core.Cart;
+import shopping.core.ShoppingCart;
 import shopping.core.Product;
 
 import static org.junit.Assert.assertEquals;
 
 public class TestBundledItems {
 
-  private Cart cart;
+  private ShoppingCart cart;
   private Product product;
   private int bundleQuantity;
   private int paidQuantity;
@@ -20,12 +20,12 @@ public class TestBundledItems {
   public void setUp() {
     bundleQuantity = 3;
     paidQuantity = 2;
-    cart = new Cart();
+    cart = new ShoppingCart();
     product = new Product("something", 1000);
   }
 
   @Test
-  public void test_buyThatManyGetSomeFree() {
+  public void buyThatManyGetSomeFree() {
     cart.clear();
     BundledItem
         bundledItem =
@@ -35,7 +35,7 @@ public class TestBundledItems {
   }
 
   @Test
-  public void test_multipleBundles() {
+  public void multipleBundles() {
     int howManyBundles = 5;
     BundledItem
         bundledItem =
@@ -46,7 +46,7 @@ public class TestBundledItems {
   }
 
   @Test
-  public void test_belowBundleGetNormalPrice() {
+  public void belowBundleGetNormalPrice() {
     int howMany = bundleQuantity - 1;
     BundledItem bundledItem = new BundledItem(product, howMany, bundleQuantity, paidQuantity);
     cart.clear();
@@ -55,11 +55,11 @@ public class TestBundledItems {
   }
 
   @Test
-  public void test_incompleteBundleGetNormalPrice() {
-    int oneOverFiveBundles = 5 * bundleQuantity + 1;
+  public void incompleteBundleGetNormalPrice() {
+    int bundlesPlusOne = 5 * bundleQuantity + 1;
     BundledItem
         bundledItem =
-        new BundledItem(product, oneOverFiveBundles, bundleQuantity, paidQuantity);
+        new BundledItem(product, bundlesPlusOne, bundleQuantity, paidQuantity);
     cart.clear();
     cart.add(bundledItem);
     assertEquals((5 * paidQuantity + 1) * bundledItem.unitPrice(), cart.total(), 0.0);
