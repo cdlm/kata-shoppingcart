@@ -13,6 +13,16 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+        showExceptions true
+        exceptionFormat "full"
+        showCauses true
+        showStackTraces true
+    }
+}
+
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
