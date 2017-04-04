@@ -15,9 +15,9 @@ dependencies {
 
 test {
     testLogging {
-        events "passed", "skipped", "failed"
+        events 'passed', 'skipped', 'failed'
         showExceptions true
-        exceptionFormat "full"
+        exceptionFormat 'full'
         showCauses true
         showStackTraces true
     }
@@ -46,12 +46,12 @@ pmd {
 
 apply plugin: 'findbugs'
 findbugs {
-  ignoreFailures = true
+    ignoreFailures = true
 }
 
 tasks.withType(FindBugs) {
-  reports {
-    xml.enabled false
-    html.enabled true
-  }
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
 }
