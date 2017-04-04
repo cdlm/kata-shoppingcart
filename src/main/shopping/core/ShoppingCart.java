@@ -58,7 +58,7 @@ public class ShoppingCart {
     StringBuffer sb = new StringBuffer();
     sb.append(line);
     for (CartItem each : items) {
-      sb.append(String.format("%-24s\t%8.2f\n", each.description(), each.price() / 100.0));
+      sb.append(String.format("%-24s\t%8.2f%n", each.description(), each.price() / 100.0));
 
     }
     sb.append(line);
